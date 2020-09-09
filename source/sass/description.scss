@@ -1,0 +1,89 @@
+.description {
+  width: 290px;
+  margin: 0 auto;
+  margin-bottom: 30px;
+}
+
+.description__item {
+  position: relative;
+  height: 90px;
+  margin-bottom: 27px;
+
+  &::before {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+
+    color: $description;
+    font-size: 100px;
+    font-weight: 700;
+  }
+
+  &--stand::before {
+    content: "150";
+  }
+
+  &--managers::before {
+    content: "35";
+  }
+
+  &--banks::before {
+    content: "20";
+  }
+}
+
+.description__text {
+  position: absolute;
+  top: 40px;
+  left: 55px;
+  z-index: 2;
+  margin: 0;
+}
+
+@media (min-width: $w510) {
+  .description {
+    width: 440px;
+    transform: translateX(30px);
+  }
+}
+
+@media (min-width: $w930) {
+  .description {
+    width: 930px;
+    transform: none;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .description__item {
+    width: 235px;
+    margin-right: 70px;
+  }
+}
+
+@media (min-width: $w1300) {
+  .description {
+    width: 1200px;
+  }
+
+  .description__item {
+    width: 350px;
+    margin-right: 0;
+
+    &--banks {
+      width: 400px;
+    }
+
+    &::before {
+      font-size: 158px;
+    }
+  }
+
+  .description__text {
+    top: 40px;
+    left: 90px;
+
+    font-size: 20px;
+  }
+}

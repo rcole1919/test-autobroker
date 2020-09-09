@@ -1,0 +1,138 @@
+.header__wrapper {
+  width: 290px;
+  margin: 0 auto;
+  margin-bottom: 40px;
+  padding-top: 26px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.header__menu {
+  width: 34px;
+  height: 35px;
+  margin-top: 11px;
+  margin-right: 27px;
+  border: none;
+
+  background-color: white;
+  background-image: url("../img/icon-menu-mobile.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100% auto;
+}
+
+.header__contacts {
+  text-align: center;
+}
+
+.header__phone {
+  margin-bottom: 7px;
+
+  a {
+    color: black;
+    font-size: 24px;
+    font-weight: 700;
+  }
+}
+
+.header__adress {
+  font-size: 13px;
+}
+
+@media (min-width: $w510) {
+  .header__wrapper {
+    width: 510px;
+    padding-top: 35px;
+    margin-bottom: 50px;
+  }
+
+  .header__img {
+    height: 40px;
+  }
+
+  .header__menu {
+    width: 38px;
+    height: 27px;
+    margin-top: 11px;
+    margin-right: 137px;
+    background-image: url("../img/icon-menu-tablet.svg");
+  }
+
+  .header__contacts {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 30px;
+  }
+
+  .header__adress {
+    width: 330px;
+
+    text-align: left;
+  }
+}
+
+@media (min-width: $w690) {
+  .header__wrapper {
+    width: 690px;
+    padding-top: 27px;
+    margin-bottom: 40px;
+    justify-content: space-between;
+  }
+
+  .header__logo {
+    margin-top: 5px;
+  }
+
+  .header__menu {
+    margin-top: 20px;
+    background-image: url("../img/icon-menu-tablet.svg");
+  }
+
+  .header__contacts {
+    flex-grow: 0;
+    margin-top: 0;
+    text-align: left;
+  }
+
+  .header__adress {
+    width: 200px;
+  }
+}
+
+@media (min-width: $w930) {
+  .header__wrapper {
+    width: 930px;
+    margin-bottom: 48px;
+  }
+
+  .header__menu {
+    margin-right: 220px;
+  }
+
+  .header__logo {
+    margin-top: 5px;
+  }
+
+  .header__img {
+    width: 257px;
+    height: 55px;
+  }
+
+  .header__contacts {
+    align-items: flex-start;
+  }
+
+  .header__adress {
+    width: 253px;
+
+    font-size: 14px;
+  }
+}
+
+@media (min-width: $w1300) {
+  .header__wrapper {
+    width: 1200px;
+  }
+}
