@@ -1,0 +1,171 @@
+.commission {
+  position: relative;
+  width: 100%;
+  padding-bottom: 150px;
+  background-image: linear-gradient(to bottom, #f7f7f7 0%, #e9e9e9 100%);
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 100%;
+
+    width: 100%;
+    height: 100%;
+
+    background-color: white;
+    transform: rotate(10deg) translateX(-30%);
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+
+    width: 100%;
+    height: 100%;
+
+    background-color: white;
+    transform: rotate(-10deg) translateX(30%);
+  }
+}
+
+.commission__wrapper {
+  padding-top: 58px;
+}
+
+.commission__title {
+  width: 290px;
+  margin: 0 auto;
+
+  text-transform: uppercase;
+  font-size: 26px;
+}
+
+.comission__find {
+  width: 290px;
+  margin: 0 auto;
+  display: block;
+  margin-top: 30px;
+  border-radius: 46px;
+  box-shadow:
+    0 6px 0 0 #ffec8b,
+    1px 7px 20px rgba(0, 0, 0, 0.15);
+
+  background-color: #ffdd2e;
+
+  text-align: center;
+  font-weight: 700;
+  line-height: 50px;
+  color: black;
+  transition: all 0.4s ease;
+
+  &:hover {
+    background-color: #f5d425;
+  }
+
+  &:active {
+    background-color: #d3b203;
+  }
+}
+
+@media (min-width: $w510) {
+  .commission__wrapper {
+    padding-top: 50px;
+  }
+
+  .commission__title {
+    width: 510px;
+
+    font-size: 30px;
+  }
+
+  .comission__find {
+    width: 300px;
+  }
+}
+
+@media (min-width: $w690) {
+  .commission__wrapper {
+    position: relative;
+    width: 100%;
+    padding-top: 63px;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 50%;
+      height: 100%;
+
+      background-image: url("../img/girl-690.png");
+      background-repeat: no-repeat;
+      background-position: top -70px right;
+    }
+  }
+
+  .commission__title-wrapper {
+    width: 690px;
+    margin: 0 auto;
+  }
+
+  .commission__title {
+    width: 50%;
+    margin: 0;
+    margin-left: auto;
+
+    font-size: 36px;
+  }
+}
+
+@media (min-width: $w930) {
+  .commission__wrapper {
+    padding-top: 67px;
+
+    &::before {
+      background-image: url("../img/girl-930.png");
+      background-position: top -85px right;
+    }
+  }
+
+  .commission__title-wrapper {
+    width: 930px;
+    margin: 0 auto;
+  }
+
+  .commission__title {
+    font-size: 42px;
+  }
+}
+
+@media (min-width: $w1300) {
+  .commission__wrapper {
+    padding-top: 67px;
+
+    &::before {
+      background-image: url("../img/girl-1300.png");
+      background-position: top -107px right;
+    }
+  }
+
+  .commission__title-wrapper {
+    width: 1300px;
+    margin: 0 auto;
+  }
+
+  .commission__title {
+    width: 62%;
+    margin: 0;
+    margin-left: auto;
+
+    font-size: 55px;
+  }
+
+  .comission__find {
+    width: 373px;
+
+    line-height: 63px;
+    font-size: 20px;
+  }
+}

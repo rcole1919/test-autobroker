@@ -1,0 +1,162 @@
+.menu {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 3;
+  width: 100%;
+  transition: all 0.4s;
+  opacity: 0;
+
+  background-color: #ed3237;
+}
+
+@keyframes open {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes close {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+.menu-open {
+  animation: open 0.5s forwards;
+  opacity: 1;
+}
+
+.menu-close {
+  animation: close 0.5s forwards;
+  opacity: 0;
+}
+
+.menu__wrapper {
+  width: 250px;
+  margin: 0 auto;
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+.menu__close {
+  margin-bottom: 30px;
+  width: 35px;
+  height: 35px;
+  border: none;
+
+  background-color: rgba(0, 0, 0, 0);
+  background-image: url("../img/icon-close.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.menu__nav-list {
+  list-style: none;
+  margin: 0;
+  margin-bottom: 30px;
+  padding: 0;
+}
+
+.menu__item {
+  margin-bottom: 10px;
+}
+
+.menu__nav-link {
+  font-size: 30px;
+  color: white;
+  font-weight: 700;
+  transition: all 0.4s;
+
+  &:hover {
+    opacity: 0.7;
+  }
+
+  &:active {
+    opacity: 0.5;
+  }
+}
+
+.menu__serv-title {
+  font-size: 30px;
+  color: white;
+  font-weight: 700;
+}
+
+.menu__serv-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  .menu__item {
+    line-height: 18px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+  }
+}
+
+.menu__serv-link {
+  font-size: 16px;
+
+  color: white;
+  font-weight: normal;
+  transition: all 0.4s;
+
+  &:hover {
+    opacity: 0.7;
+  }
+
+  &:active {
+    opacity: 0.5;
+  }
+}
+
+@media (min-width: $w510) {
+  .menu__wrapper {
+    width: 510px;
+  }
+
+  .menu__nav-list,
+  .menu__serv-list {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  .menu__item {
+    width: 45%;
+  }
+}
+
+@media (min-width: $w930) {
+  .menu__wrapper {
+    width: 930px;
+  }
+
+  .menu__close {
+    margin-bottom: 60px;
+  }
+
+  .menu__item {
+    width: 30%;
+    margin-bottom: 40px;
+  }
+
+  .menu__serv-link {
+    font-size: 20px;
+  }
+}
+
+@media (min-width: $w1300) {
+  .menu__wrapper {
+    width: 1200px;
+  }
+}

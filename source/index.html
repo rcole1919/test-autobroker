@@ -9,7 +9,86 @@
   <body>
     <header class="header">
       <div class="header__wrapper">
-        <button class="header__menu" type="button"></button>
+        <button class="header__menu" type="button" aria-label="ОТкрыть навигацию"></button>
+
+        <nav class="menu hidden">
+          <div class="menu__wrapper">
+            <button class="menu__close" type="button" aria-label="Скрыть навигацию"></button>
+            <ul class="menu__nav-list">
+              <li class="menu__item">
+                <a href="#" class="menu__nav-link">
+                  Каталог авто
+                </a>
+              </li>
+              <li class="menu__item">
+                <a href="#" class="menu__nav-link">
+                  Об Автоброкере
+                </a>
+              </li>
+              <li class="menu__item">
+                <a href="#" class="menu__nav-link">
+                  Контакты
+                </a>
+              </li>
+              <li class="menu__item">
+                <a href="#" class="menu__nav-link">
+                  Автокредит
+                </a>
+              </li>
+            </ul>
+            <div class="menu__serv-title">
+              Услуги
+            </div>
+            <ul class="menu__serv-list">
+              <li class="menu__item">
+                <a href="#" class="menu__serv-link">
+                  Срочная продажа
+                </a>
+              </li>
+              <li class="menu__item">
+                <a href="#" class="menu__serv-link">
+                  Комиссионная продажа
+                </a>
+              </li>
+              <li class="menu__item">
+                <a href="#" class="menu__serv-link">
+                  Предпродажная подготовка
+                </a>
+              </li>
+              <li class="menu__item">
+                <a href="#" class="menu__serv-link">
+                  Оценить авто
+                </a>
+              </li>
+              <li class="menu__item">
+                <a href="#" class="menu__serv-link">
+                  Обмен (trade-in)
+                </a>
+              </li>
+              <li class="menu__item">
+                <a href="#" class="menu__serv-link">
+                  ОСАГО
+                </a>
+              </li>
+              <li class="menu__item">
+                <a href="#" class="menu__serv-link">
+                  Продажа с гарантией и обеспечительным платежом
+                </a>
+              </li>
+              <li class="menu__item">
+                <a href="#" class="menu__serv-link">
+                  Онлайн комиссия
+                </a>
+              </li>
+              <li class="menu__item">
+                <a href="#" class="menu__serv-link">
+                  КАСКО
+                </a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+
         <div class="header__logo">
           <picture>
             <source media="(min-width: 930px)" srcset="img/logo-desktop.svg">
@@ -90,6 +169,50 @@
           Продажа авто с пробегом в самаре
         </p>
       </section>
+      <section class="slider">
+        <h2 class="slider__title">
+          298 автомобилей в нашей базе
+        </h2>
+      </section>
+      <section class="commission">
+        <div class="commission__wrapper">
+          <div class="commission__title-wrapper">
+            <h2 class="commission__title">
+              Комиссионная продажа
+            </h2>
+          </div>
+          <div class="commission__optimal optimal">
+            <h3 class="optimal__title">
+              Оптимальное решение!
+            </h3>
+            <ul class="optimal__list">
+              <li class="optimal__item">
+                «Комиссионная продажа» с обеспечением по графику. Безопасно, надежно, выгодно.
+              </li>
+              <li class="optimal__item">
+                Эта услуга максимально открыта, гарантирует продажу в течение 5 недель по максимальной рыночной цене в условиях рынка.
+              </li>
+              <li class="optimal__item">
+                Самое главное Вы получаете обеспечительный платеж до 95% от стоимости сразу в кассе.
+              </li>
+            </ul>
+            <div class="optimal__declaration">
+              <p class="optimal__text">
+                Мы с полной уверенностью заявляем что комиссионная продажа для Вас выгоднее, чем сдать машину скупщикам авто!
+              </p>
+              <p class="optimal__text">
+                Если у Вас есть хотя бы три дня на продажу автомобиля доверьте продажe нам и мы Вас удивим своими возможностями!
+              </p>
+            </div>
+          </div>
+          <a href="#" class="comission__find">
+            Найти или продать автомобиль
+          </a>
+        </div>
+      </section>
     </main>
+
+    <script src="js/menu.js"></script>
+    <script src="js/picturefill.js"></script>
   </body>
 </html>

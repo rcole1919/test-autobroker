@@ -1,0 +1,105 @@
+.optimal {
+  width: 290px;
+  margin: 0 auto;
+}
+
+.optimal__title {
+  margin-top: 0;
+  font-size: 24px;
+  font-weight: normal;
+  text-transform: uppercase;
+}
+
+.optimal__list {
+  list-style: none;
+  padding: 0;
+}
+
+.optimal__item {
+  background-image: url("../img/icon-marker.svg");
+  background-repeat: no-repeat;
+
+  margin-bottom: 20px;
+  padding-left: 40px;
+  color: black;
+}
+
+.optimal__declaration {
+  padding: 19px;
+  border: 4px solid #e10000;
+  border-radius: 20px;
+}
+
+.optimal__text {
+  margin: 0;
+  font-weight: 700;
+  text-align: center;
+  color: #ff0000;
+}
+
+@media (min-width: $w510) {
+  .optimal {
+    width: 510px;
+  }
+
+  .optimal__title {
+    font-size: 26px;
+  }
+}
+
+@media (min-width: $w690) {
+  .optimal {
+    width: 690px;
+  }
+
+  .optimal__title {
+    width: 50%;
+    margin-left: auto;
+  }
+
+  .optimal__list {
+    width: 50%;
+    margin-left: auto;
+  }
+
+  .optimal__declaration {
+    width: 608px;
+    margin: 0 auto;
+  }
+
+  .optimal__text:not(:last-child) {
+    margin-bottom: 20px;
+  }
+}
+
+@media (min-width: $w930) {
+  .optimal {
+    width: 930px;
+  }
+
+  .optimal__title {
+    font-size: 30px;
+  }
+}
+
+@media (min-width: $w1300) {
+  .optimal__title {
+    margin-bottom: 48px;
+    font-size: 36px;
+  }
+
+  .optimal__list {
+    margin-bottom: 122px;
+  }
+
+  .optimal__item {
+    background-size: 27px 20px;
+    font-size: 20px;
+  }
+
+  .optimal__declaration {
+    width: 753px;
+    padding: 30px;
+    font-size: 20px;
+  }
+}
