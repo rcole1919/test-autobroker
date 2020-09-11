@@ -25,6 +25,7 @@
 @import "var.scss";
 
 body {
+  min-width: 320px;
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -53,3 +54,7 @@ a {
 @import "commission.scss";
 @import "optimal.scss";
 @import "menu.scss";
+@import "catalog.scss";
+@import "car.scss";
+@import "slick.scss";
+@import "slick-theme.scss";

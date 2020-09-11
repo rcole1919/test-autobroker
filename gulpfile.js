@@ -9,7 +9,6 @@ var csso = require("gulp-csso");
 var rename = require("gulp-rename");
 var autoprefixer = require("autoprefixer");
 var server = require("browser-sync").create();
-var svgstore = require("gulp-svgstore");
 
 gulp.task("css", function () {
   return gulp.src("source/sass/style.scss")
@@ -39,15 +38,6 @@ gulp.task("cssmin", function () {
     .pipe(server.stream());
 });
 
-gulp.task("sprite", function () {
-  return gulp.src("source/img/icon-*.svg")
-    .pipe(svgstore({
-      inlineSvg: true
-    }))
-    .pipe(rename("sprite.svg"))
-    .pipe(gulp.dest("source/img"));
-});
-
 gulp.task("server", function () {
   server.init({
     server: "source/",
@@ -58,8 +48,8 @@ gulp.task("server", function () {
   });
 
   gulp.watch("source/sass/**/*.scss", gulp.series("css", "cssmin"));
-  gulp.watch("source/img/icon-*.svg", gulp.series("sprite"));
+  gulp.watch("source/img/icon-*.svg").on("change", server.reload);
   gulp.watch("source/*.html").on("change", server.reload);
 });
 
-gulp.task("start", gulp.series("css", "cssmin", "sprite", "server"));
+gulp.task("start", gulp.series("css", "cssmin", "server"));
