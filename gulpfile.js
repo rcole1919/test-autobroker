@@ -50,6 +50,7 @@ gulp.task("server", function () {
   gulp.watch("source/sass/**/*.scss", gulp.series("css", "cssmin"));
   gulp.watch("source/img/icon-*.svg").on("change", server.reload);
   gulp.watch("source/*.html").on("change", server.reload);
+  gulp.watch("source/js/*.js").on("change", server.reload);
 });
 
 gulp.task("start", gulp.series("css", "cssmin", "server"));
