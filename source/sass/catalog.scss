@@ -42,6 +42,15 @@
   color: white;
   font-weight: 700;
   line-height: 50px;
+  transition: all 0.4s;
+
+  &:hover {
+    color: rgba(255, 255, 255, 0.8);
+  }
+
+  &:active {
+    color: rgba(255, 255, 255, 0.5);
+  }
 }
 
 @media (min-width: $w510) {
