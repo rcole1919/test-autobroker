@@ -1,14 +1,39 @@
 'use strict';
 
 (function () {
+  const TABLET_WIDTH = 690;
+  const DESKTOP_WIDTH = 930;
+  const TABLET_OPTION_GAP = 20;
+  const DESKTOP_OPTION_GAP = 25;
+
   const string = document.querySelector('.options__string');
   const depth = document.querySelector('.options__depth');
   const arrow = document.querySelector('.options__arrow');
   const list = document.querySelector('.options__list');
+  const options = document.querySelectorAll('.options__item');
 
-  const optionSecond = document.querySelector('.options__item--2');
-  const optionThird = document.querySelector('.options__item--3');
-  const optionFourth = document.querySelector('.options__item--4');
+  const getOpacity = function (gap, width, screenWidthMin, screenWidthMax, translate) {
+    if (window.innerWidth >= screenWidthMin && window.innerWidth < screenWidthMax) {
+      list.style.transform = `translateX(-${translate}px)`;
+      options.forEach(function (el, i) {
+        width >= gap * i ? el.style.opacity = 1 : el.style.opacity = 0.2;
+      });
+    }
+  };
+
+  const getNewLocation = function (newLocation) {
+    arrow.style.left = newLocation + 'px';
+    let depthWidth = newLocation * 100 / string.offsetWidth;
+    depth.style.width = depthWidth + '%';
+    let listTranslate = newLocation * ((list.offsetWidth - string.offsetWidth) / (string.offsetWidth - arrow.offsetWidth));
+
+    getOpacity(TABLET_OPTION_GAP, depthWidth, 0, TABLET_WIDTH, listTranslate);
+
+    getOpacity(DESKTOP_OPTION_GAP, depthWidth, TABLET_WIDTH, DESKTOP_WIDTH, listTranslate);
+
+    getOpacity(DESKTOP_OPTION_GAP, depthWidth, DESKTOP_WIDTH, Infinity, 0);
+  };
+
   arrow.addEventListener('mousedown', function (evt) {
     evt.preventDefault();
     let startCoord = evt.clientX;
@@ -26,35 +51,7 @@
         newLocation = newLocation < 0 ? 0 : string.offsetWidth - arrow.offsetWidth;
         document.removeEventListener('mousemove', onMouseMove);
       }
-      arrow.style.left = newLocation + 'px';
-      let depthWidth = newLocation * 100 / string.offsetWidth;
-      depth.style.width = depthWidth + '%';
-      if (window.innerWidth < 510) {
-        list.style.transform = `translateX(-${newLocation * 3.5}px)`;
-        depthWidth > 15 ? optionSecond.style.opacity = 1 : optionSecond.style.opacity = 0.2;
-        depthWidth > 40 ? optionThird.style.opacity = 1 : optionThird.style.opacity = 0.2;
-        depthWidth > 60 ? optionFourth.style.opacity = 1 : optionFourth.style.opacity = 0.2;
-      }
-
-      if (window.innerWidth >= 510 && window.innerWidth < 690) {
-        list.style.transform = `translateX(-${newLocation}px)`;
-        depthWidth > 15 ? optionSecond.style.opacity = 1 : optionSecond.style.opacity = 0.2;
-        depthWidth > 40 ? optionThird.style.opacity = 1 : optionThird.style.opacity = 0.2;
-        depthWidth > 60 ? optionFourth.style.opacity = 1 : optionFourth.style.opacity = 0.2;
-      }
-
-      if (window.innerWidth >= 690 && window.innerWidth < 930) {
-        list.style.transform = `translateX(-${newLocation * 0.4}px)`;
-        depthWidth > 20 ? optionSecond.style.opacity = 1 : optionSecond.style.opacity = 0.2;
-        depthWidth > 45 ? optionThird.style.opacity = 1 : optionThird.style.opacity = 0.2;
-        depthWidth > 70 ? optionFourth.style.opacity = 1 : optionFourth.style.opacity = 0.2;
-      }
-
-      if (window.innerWidth >= 930) {
-        depthWidth > 20 ? optionSecond.style.opacity = 1 : optionSecond.style.opacity = 0.2;
-        depthWidth > 45 ? optionThird.style.opacity = 1 : optionThird.style.opacity = 0.2;
-        depthWidth > 70 ? optionFourth.style.opacity = 1 : optionFourth.style.opacity = 0.2;
-      }
+      getNewLocation(newLocation);
     };
 
     let onMouseUp = function (upEvt) {
@@ -86,36 +83,7 @@
         newLocation = newLocation < 0 ? 0 : string.offsetWidth - arrow.offsetWidth;
         arrow.removeEventListener('touchmove', onArrowMove, false);
       }
-      arrow.style.left = newLocation + 'px';
-      let depthWidth = newLocation * 100 / string.offsetWidth;
-      depth.style.width = depthWidth + '%';
-
-      if (window.innerWidth < 510) {
-        list.style.transform = `translateX(-${newLocation * 3.5}px)`;
-        depthWidth > 15 ? optionSecond.style.opacity = 1 : optionSecond.style.opacity = 0.2;
-        depthWidth > 40 ? optionThird.style.opacity = 1 : optionThird.style.opacity = 0.2;
-        depthWidth > 60 ? optionFourth.style.opacity = 1 : optionFourth.style.opacity = 0.2;
-      }
-
-      if (window.innerWidth >= 510 && window.innerWidth < 690) {
-        list.style.transform = `translateX(-${newLocation}px)`;
-        depthWidth > 15 ? optionSecond.style.opacity = 1 : optionSecond.style.opacity = 0.2;
-        depthWidth > 40 ? optionThird.style.opacity = 1 : optionThird.style.opacity = 0.2;
-        depthWidth > 60 ? optionFourth.style.opacity = 1 : optionFourth.style.opacity = 0.2;
-      }
-
-      if (window.innerWidth >= 690 && window.innerWidth < 930) {
-        list.style.transform = `translateX(-${newLocation * 0.4}px)`;
-        depthWidth > 20 ? optionSecond.style.opacity = 1 : optionSecond.style.opacity = 0.2;
-        depthWidth > 45 ? optionThird.style.opacity = 1 : optionThird.style.opacity = 0.2;
-        depthWidth > 70 ? optionFourth.style.opacity = 1 : optionFourth.style.opacity = 0.2;
-      }
-
-      if (window.innerWidth >= 930) {
-        depthWidth > 20 ? optionSecond.style.opacity = 1 : optionSecond.style.opacity = 0.2;
-        depthWidth > 45 ? optionThird.style.opacity = 1 : optionThird.style.opacity = 0.2;
-        depthWidth > 70 ? optionFourth.style.opacity = 1 : optionFourth.style.opacity = 0.2;
-      }
+      getNewLocation(newLocation);
     };
 
     let onTouchUp = function (upEvt) {
